@@ -19,7 +19,7 @@ class LoginView extends StatelessWidget {
             height: MediaQuery.of(context).size.height * 0.30,
           ),
           Image.asset(
-            'assets/leram.png',
+            'assets/leram.jpg',
             height: 150,
             width: 150,
           ),

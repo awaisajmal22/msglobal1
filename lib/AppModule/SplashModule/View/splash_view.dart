@@ -36,7 +36,7 @@ class _SplashViewState extends State<SplashView> {
     return Scaffold(
       body: Center(
           child: Image.asset(
-        'assets/leram.png',
+        'assets/leram.jpg',
         height: 300,
         width: 300,
       )),
