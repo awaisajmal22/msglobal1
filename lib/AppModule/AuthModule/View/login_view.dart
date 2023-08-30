@@ -32,12 +32,12 @@ class LoginView extends StatelessWidget {
               controller: loginVM.emailController,
               style: const TextStyle(
                   color: Colors.black, fontWeight: FontWeight.w500),
-              decoration: InputDecoration(
+              decoration: const InputDecoration(
                   hintText: 'Email',
                   hintStyle: const TextStyle(
                       color: Colors.black, fontWeight: FontWeight.w400),
                   border: InputBorder.none,
-                  fillColor: Colors.grey.withAlpha(50),
+                  fillColor: Colors.transparent,
                   filled: true,
                   errorBorder: InputBorder.none,
                   enabledBorder: InputBorder.none,
@@ -59,12 +59,12 @@ class LoginView extends StatelessWidget {
                     controller: loginVM.passwordController,
                     style: const TextStyle(
                         color: Colors.black, fontWeight: FontWeight.w500),
-                    decoration: InputDecoration(
+                    decoration: const InputDecoration(
                         hintText: 'Password',
-                        hintStyle: const TextStyle(
+                        hintStyle: TextStyle(
                             color: Colors.black, fontWeight: FontWeight.w400),
                         border: InputBorder.none,
-                        fillColor: Colors.grey.withAlpha(50),
+                        fillColor: Colors.transparent,
                         filled: true,
                         errorBorder: InputBorder.none,
                         enabledBorder: InputBorder.none,

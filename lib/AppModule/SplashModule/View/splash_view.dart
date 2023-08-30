@@ -37,8 +37,8 @@ class _SplashViewState extends State<SplashView> {
       body: Center(
           child: Image.asset(
         'assets/leram.png',
-        height: 200,
-        width: 200,
+        height: 300,
+        width: 300,
       )),
     );
   }

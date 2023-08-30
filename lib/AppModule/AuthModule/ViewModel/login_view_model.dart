@@ -21,24 +21,19 @@ class LoginViewModel extends GetxController {
     // parsedData.map((userJson) => UserModel.fromJson(userJson)).toList();
     for (UserModel user in userList) {
       if (user.username == email && user.username == password) {
-     
-   
         Navigator.pushReplacement(
             context,
             MaterialPageRoute(
-              builder: (context) =>  HomeView(id: user.id!,address: user.street!, name: user.name!, username: user.username!, zipCode: user.zipcode!,),
+              builder: (context) => HomeView(
+                id: user.id!,
+                address: user.street!,
+                name: user.name!,
+                username: user.username!,
+                zipCode: user.zipcode!,
+              ),
             ));
       } else {
-        if (shouldShowSnackbar.value) {
-          Get.showSnackbar(
-            GetBar(
-              message: 'Something went Wrong..',
-              duration: Duration(seconds: 3),
-              isDismissible: true,
-            ),
-          );
-          shouldShowSnackbar.value = false;
-        }
+        return;
       }
     }
   }
