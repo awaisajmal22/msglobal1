@@ -26,49 +26,16 @@ class LoginView extends StatelessWidget {
           const SizedBox(
             height: 20,
           ),
-          TextField(
-            controller: loginVM.emailController,
-            style: TextStyle(
-                color: Colors.black, fontSize: 15, fontWeight: FontWeight.w500),
-            decoration: InputDecoration(
-                hintText: 'Email',
-                hintStyle: const TextStyle(
-                    color: Colors.black,
-                    fontSize: 15,
-                    fontWeight: FontWeight.w400),
-                border: InputBorder.none,
-                fillColor: Colors.grey.withAlpha(50),
-                filled: true,
-                errorBorder: InputBorder.none,
-                enabledBorder: InputBorder.none,
-                focusedBorder: InputBorder.none,
-                disabledBorder: InputBorder.none,
-                focusedErrorBorder: InputBorder.none),
-          ),
-          SizedBox(
-            height: 10,
-          ),
-          Obx(
-            () => TextField(
-              obscureText: loginVM.isObsecure.value,
-              controller: loginVM.passwordController,
+          Container(
+            color: Colors.grey.withAlpha(50),
+            child: TextField(
+              controller: loginVM.emailController,
               style: const TextStyle(
-                  color: Colors.black,
-                  fontSize: 15,
-                  fontWeight: FontWeight.w500),
+                  color: Colors.black, fontWeight: FontWeight.w500),
               decoration: InputDecoration(
-                  suffixIcon: GestureDetector(
-                      onTap: () {
-                        loginVM.isObsecure.value = !loginVM.isObsecure.value;
-                      },
-                      child: Icon(loginVM.isObsecure.value
-                          ? Icons.visibility
-                          : Icons.visibility_off)),
-                  hintText: 'Password',
+                  hintText: 'Email',
                   hintStyle: const TextStyle(
-                      color: Colors.black,
-                      fontSize: 15,
-                      fontWeight: FontWeight.w400),
+                      color: Colors.black, fontWeight: FontWeight.w400),
                   border: InputBorder.none,
                   fillColor: Colors.grey.withAlpha(50),
                   filled: true,
@@ -77,6 +44,48 @@ class LoginView extends StatelessWidget {
                   focusedBorder: InputBorder.none,
                   disabledBorder: InputBorder.none,
                   focusedErrorBorder: InputBorder.none),
+            ),
+          ),
+          const SizedBox(
+            height: 10,
+          ),
+          Container(
+            color: Colors.grey.withAlpha(50),
+            child: Row(
+              children: [
+                Expanded(
+                  child: TextField(
+                    obscureText: loginVM.isObsecure.value,
+                    controller: loginVM.passwordController,
+                    style: const TextStyle(
+                        color: Colors.black, fontWeight: FontWeight.w500),
+                    decoration: InputDecoration(
+                        hintText: 'Password',
+                        hintStyle: const TextStyle(
+                            color: Colors.black, fontWeight: FontWeight.w400),
+                        border: InputBorder.none,
+                        fillColor: Colors.grey.withAlpha(50),
+                        filled: true,
+                        errorBorder: InputBorder.none,
+                        enabledBorder: InputBorder.none,
+                        focusedBorder: InputBorder.none,
+                        disabledBorder: InputBorder.none,
+                        focusedErrorBorder: InputBorder.none),
+                  ),
+                ),
+                Obx(
+                  () => GestureDetector(
+                      onTap: () {
+                        loginVM.isObsecure.value = !loginVM.isObsecure.value;
+                      },
+                      child: Icon(loginVM.isObsecure.value
+                          ? Icons.visibility
+                          : Icons.visibility_off)),
+                ),
+                const SizedBox(
+                  width: 10,
+                )
+              ],
             ),
           ),
           SizedBox(

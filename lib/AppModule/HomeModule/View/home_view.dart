@@ -25,6 +25,18 @@ class HomeView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        floatingActionButton: Container(
+          height: 48,
+          width: 48,
+          decoration:
+              BoxDecoration(shape: BoxShape.circle, color: Color(0xffE43228)),
+          child: Center(
+            child: Icon(
+              Icons.add,
+              color: Colors.white,
+            ),
+          ),
+        ),
         drawer: Drawer(),
         appBar: AppBar(
           elevation: 40,
