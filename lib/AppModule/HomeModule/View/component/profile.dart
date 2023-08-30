@@ -50,14 +50,15 @@ class ProfileView extends StatelessWidget {
         children: [
           Text(
             title,
-            style: TextStyle(
+            style: const TextStyle(
               color: Colors.black,
               fontSize: 18,
             ),
           ),
           Text(
             data,
-            style: TextStyle(
+            textAlign: TextAlign.right,
+            style: const TextStyle(
               color: Colors.black,
               fontSize: 18,
             ),

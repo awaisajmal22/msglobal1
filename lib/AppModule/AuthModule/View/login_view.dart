@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:get/get.dart';
 
 import '../ViewModel/login_view_model.dart';
@@ -54,23 +53,25 @@ class LoginView extends StatelessWidget {
             child: Row(
               children: [
                 Expanded(
-                  child: TextField(
-                    obscureText: loginVM.isObsecure.value,
-                    controller: loginVM.passwordController,
-                    style: const TextStyle(
-                        color: Colors.black, fontWeight: FontWeight.w500),
-                    decoration: const InputDecoration(
-                        hintText: 'Password',
-                        hintStyle: TextStyle(
-                            color: Colors.black, fontWeight: FontWeight.w400),
-                        border: InputBorder.none,
-                        fillColor: Colors.transparent,
-                        filled: true,
-                        errorBorder: InputBorder.none,
-                        enabledBorder: InputBorder.none,
-                        focusedBorder: InputBorder.none,
-                        disabledBorder: InputBorder.none,
-                        focusedErrorBorder: InputBorder.none),
+                  child: Obx(
+                    () => TextField(
+                      obscureText: loginVM.isObsecure.value,
+                      controller: loginVM.passwordController,
+                      style: const TextStyle(
+                          color: Colors.black, fontWeight: FontWeight.w500),
+                      decoration: const InputDecoration(
+                          hintText: 'Password',
+                          hintStyle: TextStyle(
+                              color: Colors.black, fontWeight: FontWeight.w400),
+                          border: InputBorder.none,
+                          fillColor: Colors.transparent,
+                          filled: true,
+                          errorBorder: InputBorder.none,
+                          enabledBorder: InputBorder.none,
+                          focusedBorder: InputBorder.none,
+                          disabledBorder: InputBorder.none,
+                          focusedErrorBorder: InputBorder.none),
+                    ),
                   ),
                 ),
                 Obx(

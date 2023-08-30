@@ -29,12 +29,15 @@ class PostView extends StatelessWidget {
           subtitle: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(
-                homeVM.posts[index].title,
-                style: TextStyle(
-                    color: homeVM.posts[index].userId == id
-                        ? Colors.black
-                        : Colors.black.withAlpha(150)),
+              SizedBox(
+                width: MediaQuery.of(context).size.width * 0.65,
+                child: Text(
+                  homeVM.posts[index].title,
+                  style: TextStyle(
+                      color: homeVM.posts[index].userId == id
+                          ? Colors.black
+                          : Colors.black.withAlpha(150)),
+                ),
               ),
               const SizedBox(
                 height: 20,

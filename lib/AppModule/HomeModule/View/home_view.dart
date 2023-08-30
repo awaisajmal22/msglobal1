@@ -3,6 +3,7 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
+import 'package:testwork/AppModule/AuthModule/View/login_view.dart';
 
 import '../ViewModel/home_view_model.dart';
 import 'component/posts.dart';
@@ -28,16 +29,47 @@ class HomeView extends StatelessWidget {
         floatingActionButton: Container(
           height: 48,
           width: 48,
-          decoration:
-             const BoxDecoration(shape: BoxShape.circle, color: Color(0xffE43228)),
-          child: Center(
+          decoration: const BoxDecoration(
+              shape: BoxShape.circle, color: Color(0xffE43228)),
+          child: const Center(
             child: Icon(
               Icons.add,
               color: Colors.white,
             ),
           ),
         ),
-        drawer: Drawer(),
+        drawer: Drawer(
+          child: SafeArea(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+              const  SizedBox(
+                  height: 40,
+                ),
+                Container(
+                  decoration: BoxDecoration(
+                    color: const Color(0xffE43228),
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  padding: const EdgeInsets.all(5),
+                  child: GestureDetector(
+                    onTap: () {
+                      Navigator.pushReplacement(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => LoginView(),
+                          ));
+                    },
+                    child: Text(
+                      'Logout',
+                      style: TextStyle(fontSize: 20),
+                    ),
+                  ),
+                )
+              ],
+            ),
+          ),
+        ),
         appBar: AppBar(
           elevation: 40,
           bottom: TabBar(

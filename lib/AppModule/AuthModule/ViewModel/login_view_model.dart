@@ -19,22 +19,23 @@ class LoginViewModel extends GetxController {
         .map((json) => UserModel.fromJson(json))
         .toList();
     // parsedData.map((userJson) => UserModel.fromJson(userJson)).toList();
-    for (UserModel user in userList) {
-      if (user.username == email && user.username == password) {
-        Navigator.pushReplacement(
-            context,
-            MaterialPageRoute(
-              builder: (context) => HomeView(
-                id: user.id!,
-                address: user.street!,
-                name: user.name!,
-                username: user.username!,
-                zipCode: user.zipcode!,
-              ),
-            ));
-      } else {
-        return;
-      }
+    UserModel? matchingEmail = userList.firstWhere(
+      (element) => element.email == email && element.username == password,
+    );
+    if (matchingEmail != null) {
+      Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(
+            builder: (context) => HomeView(
+              id: matchingEmail.id!,
+              address: "${matchingEmail.street!} ${matchingEmail.suite}\n${matchingEmail.city}",
+              name: matchingEmail.name!,
+              username: matchingEmail.username!,
+              zipCode: matchingEmail.zipcode!,
+            ),
+          ));
+    } else {
+      return;
     }
   }
 }
